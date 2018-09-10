@@ -1,6 +1,7 @@
-
-
 """ 
+Author : Tobe
+
+VisualDisplay.py
 
 """
 class PointObject: 
@@ -116,7 +117,7 @@ class SensorObject(VisualObject):
 class ParticleObject(VisualObject):
 	def __init__(self,position = (0,0),color = "blue"):
 		self.position = (0,0) 
-		self.d =  0.8
+		self.d =  2
 		self.setPosition(position)
 		seq = self.constructParticleBoundaries()
 		VisualObject.__init__(self,seq,color)

@@ -2,13 +2,17 @@ from VisualDisplay import VisualObject, ParticleObject, SensorObject
 from VisualDisplayGUI import DisplayScreen
 
 
-from RobotClass import *
+from RobotClass import Robot 
+from SensorClass import Sensor 
+from WorldMapClass import WorldMap, Obstacle 
+from ParticleFilterClass import ParticleFilter 
 
 import numpy as np 
 import random 
 import pickle 
 
 PI = np.pi 
+
 
 def test4():
 	""" This Runs the simulation using a living room world. 
@@ -25,7 +29,6 @@ def test4():
 		"""
 
 	bbox = [(0,360),(360,0)]
-
 	
 
 	world_boundaries = [[(0,0),(300,0)],[(300,0),(300,360)],[(360,360),(0,360)],[(0,360),(0,0)]]
@@ -59,7 +62,7 @@ def test4():
 	mean_robot.setNoise(0.0,0.0)
 	
 	# :; specify particle noise 
-	number_of_particles    = 20
+	number_of_particles    = 500
 	particle_turn_noise    =  80*PI/180 # 
 	particle_forward_noise = 10  #0.05 	
 	# :: create Particle Filter Algorithm Object 
@@ -70,7 +73,7 @@ def test4():
 	simulation_name = 'localiseHome3_200'
 
 	# :: Specify simulation type: 0 -> Real time simulation , 1-> Run and save simulation without any display, 2-> Run saved simulation 
-	simulation_type = 0 
+	simulation_type = 2 
 
 	if simulation_type == 0 : # Run real time simulation  
 		RunRealTimeSimulation(simulation_name,bbox,worldmap,robot,particle_filter_algorithm)

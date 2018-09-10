@@ -1,3 +1,10 @@
+"""
+Author : Tobe 
+
+VisualDisplayGUI.py 
+
+"""
+
 from tkinter import *
 import time 
 
