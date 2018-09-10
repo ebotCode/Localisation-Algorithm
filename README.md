@@ -13,6 +13,8 @@ Description:
 
 VisualDisplay.py generates a visual display of the localisation process. The vehicle is represented as a red circle, while the particles are represented as blue circles. 
 
+Rectangular regions represents obstacles in the living room such as wall partitions, chairs, etc. 
+
 Sensors are mocked as LIDAR. we use 8-scan (which is the same as using 8 scans data from a 360 deg LIDAR device.)
 
 The distribution starts out with having particles uniformly distributed over my living rooom space, which represents the vehicles uncertainty as to where in the living room map it is. As the vehicle moves, the particle filter algorithm takes in the sensor measurement and motion commands to update the distribution of the particles, narrowing down to where the vehicle (red circle) is. 
@@ -39,6 +41,8 @@ Subsequent iterations:
 
 ![Alt text](/img/pf_img6.png?raw=true "")
 
+In the image above, the mean error was as low as 0.8887 for position, and 0.7 deg for orientation.
+
 ![Alt text](/img/pf_img7.png?raw=true "")
 
 ![Alt text](/img/pf_img8.png?raw=true "")
@@ -53,4 +57,7 @@ Subsequent iterations:
 
 ![Alt text](/img/pf_img13.png?raw=true "")
 
+
+More About this simulation:
+from the result above, you can notice that this project tried to process the dense data coming from the mocked lidar sensor (the green laser beams emanating from the robot and hittin the walls. I considered this approach rather than having to extract feature because it felt but better, and was a precursor to another project on mapping. )
 
