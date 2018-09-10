@@ -62,15 +62,15 @@ def test4():
 	mean_robot.setNoise(0.0,0.0)
 	
 	# :; specify particle noise 
-	number_of_particles    = 500
+	number_of_particles    = 1000
 	particle_turn_noise    =  80*PI/180 # 
-	particle_forward_noise = 10  #0.05 	
+	particle_forward_noise = 20  #0.05 	
 	# :: create Particle Filter Algorithm Object 
 	particle_filter_algorithm = ParticleFilter(worldmap,robot,mean_robot,particle_sensor,
 											particle_turn_noise,particle_forward_noise,number_of_particles)
 
 	# :: specify the name of the simulation 
-	simulation_name = 'localiseHome3_200'
+	simulation_name = 'localiseHome1_1000'
 
 	# :: Specify simulation type: 0 -> Real time simulation , 1-> Run and save simulation without any display, 2-> Run saved simulation 
 	simulation_type = 2 

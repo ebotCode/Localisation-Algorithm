@@ -24,7 +24,7 @@ class Sensor:
 				rel_ray_directions: list of angles that represent the directions of the rays
 
 		"""
-		self.number_of_sensors = 6
+		self.number_of_sensors = 8
 		self.start_angle = 0 
 		self.worldmap = worldmap  # WorldMap Object
 		self.sensor_noise = sensor_noise  

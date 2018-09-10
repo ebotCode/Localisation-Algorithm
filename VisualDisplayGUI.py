@@ -58,6 +58,7 @@ class DisplayScreen(Frame):
         self.ymax_pixel = 0
 
         self.object_dict = None 
+        self.realtime_sim_counter = 0
         self.simulation_dict = simulation_dict 
         self.timer = None 
         #  initialise canvas 
@@ -281,6 +282,7 @@ class DisplayScreen(Frame):
 
     def runSimulation(self,interval_display = 20,start = 0):
         # :: retrieve the filter_algorithm object
+        self.realtime_sim_counter += 1
         filter_algorithm = self.simulation_dict["filter_algorithm"]
         # :: localise 
         sensor_ray_segs,error = filter_algorithm.localise(1) 
@@ -289,11 +291,16 @@ class DisplayScreen(Frame):
         self.object_dict['particles'] = particles
         self.object_dict['sensor'].setSequence(sensor_ray_segs) # set the particle sequence 
         self.drawObjects()
-        self.mycanvas.after(50,self.runSimulation)
-        if error < 1e-2:
+
+        if self.realtime_sim_counter == 1:
+            input('<enter to continue>')
+        
+        if error < 3.5:
             # self.mycanvas.after_cancel
             print('CONVERGENCE REACHED')
             input('<enter to continue>')
+        else:
+            self.mycanvas.after(50,self.runSimulation)
 
 
         # self.after('cancel',self.timer)
